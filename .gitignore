@@ -1,0 +1,18 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/client/node_modules
+
+/client/dist/index_bundle.js
+log/*
+/dist
+.idea/codeStyles/
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+.idea/dataSources/
+.idea/misc.xml
+.idea/modules.xml
+.idea/node.iml
+.idea/shelf/
+.idea/workspace.xml
