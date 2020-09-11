@@ -31,25 +31,17 @@ module.exports = {
           'ts-loader',
         ]
       },
-      // {
-      //   test: /\.ejs$/,
-      //   loader: 'ejs-loader',
-      //   options: {
-      //     variable: 'data',
-      //     interpolate : '\\{\\{(.+?)\\}\\}',
-      //     evaluate : '\\[\\[(.+?)\\]\\]'
-      //   }
-      // }
     ]
   },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/views', to: 'views'},
+        { from: 'public', to: 'public' }
       ],
     }),
     new WebpackShellPlugin({
-      onBuildEnd: ['npm run start2:dev']
+      onBuildEnd: ['npm run start:dev']
     })
   ]
 };
