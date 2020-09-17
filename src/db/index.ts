@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
-import UserModel from './models/user';
-import VideoModel from './models/video';
-import { dbConfig as config } from '../../config/';
+import UserModel from 'db/models/user';
+import VideoModel from 'db/models/video';
+import { dbConfig as config } from 'config/';
 // import { logger as log } from '../utils/logger';
 
 // const logger = log(module);

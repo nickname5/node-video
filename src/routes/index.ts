@@ -1,19 +1,20 @@
 import express from 'express';
 import * as pathUtil from 'path';
 import * as fs from 'fs';
+import { VideoController } from '../controller/VideoController';
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Video app' }); // all videos
 });
 // video test
-router.get('/watch', function(req, res, next) {
-  res.render('video', {
-    title: 'test video',
-    apiUrl: 'http://localhost:3002'
-  });
-});
+// router.get('/watch', function(req, res, next) {
+//   res.render('video', {
+//     title: 'test video',
+//     apiUrl: 'http://localhost:3002'
+//   });
+// });
 
 router.get('/video', function(req, res, next) {
   const path = pathUtil.join(__dirname, 'public/video/example.mp4');
@@ -42,8 +43,10 @@ router.get('/video', function(req, res, next) {
       'Content-Type': 'video/mp4',
     };
     res.writeHead(200, head);
-    fs.createReadStream(path).pipe(res)
+    fs.createReadStream(path).pipe(res);
   }
 });
+
+router.post('/upload-video/:id', VideoController.uploadVideo);
 
 export default router;

@@ -10,18 +10,7 @@ interface UserAttributes {
   updatedAt?: Date;
 }
 
-// Some fields are optional when calling UserModel.create() or UserModel.build()
-// interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
-
-// We need to declare an interface for our model that is basically what our class would be
 export interface UserInstance extends Model<UserAttributes>, UserAttributes {}
-
-// export interface UserModel extends Model<UserAttributes>, UserAttributes {}
-// export class User extends Model<UserModel, UserAttributes> {}
-//
-// type UserStatic = typeof Model & {
-//   new (values?: Record<string, unknown>, options?: BuildOptions): UserModel;
-// };
 
 export default (sequelize: Sequelize): ModelCtor<UserInstance> => {
   const User = sequelize.define<UserInstance>('user', {

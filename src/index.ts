@@ -3,14 +3,14 @@
  */
 
 import app from './app';
-// var debug = require('debug')('node-video:server'); todo: what is that?
 import http from 'http';
+import config from 'config';
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3001');
+const port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
 /**
@@ -84,6 +84,5 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  // debug('Listening on ' + bind); fixme: is it morgan?
-  console.log('debug(\'Listening on \' + bind);');
+  console.log('Listening on ' + bind);
 }

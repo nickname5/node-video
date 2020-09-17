@@ -5,19 +5,18 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-console.log('-------',  path.resolve(__dirname, '../src/index.ts'));
-
 module.exports = {
-  entry:  path.resolve(__dirname, '../src/index.ts'),
+  entry:  path.resolve(__dirname, '../index.ts'),
   mode: NODE_ENV,
   target: 'node',
   watch: NODE_ENV === 'development',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../../dist'),
     filename: 'index.js'
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    modules: [path.resolve(__dirname, '../'), 'node_modules'],
   },
   node: {
     __dirname: false,

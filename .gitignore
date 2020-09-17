@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /client/node_modules
+/storage
 
 /client/dist/index_bundle.js
 log/*

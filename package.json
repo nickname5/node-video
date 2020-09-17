@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "PORT=3002 node ./dist/index.js",
-    "serve:dev": "NODE_ENV=development PORT=3002 webpack --config config/webpack.config.js",
+    "serve:dev": "NODE_ENV=development PORT=3002 webpack --config src/config/webpack.config.js",
     "start:dev": "NODE_ENV=development PORT=3002 nodemon dist/index.js",
-    "build": "webpack --config config/webpack.config.js"
+    "build": "webpack --config src/config/webpack.config.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -16,6 +16,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "multer": "^1.4.2",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.5",
     "shortid": "^2.2.15"

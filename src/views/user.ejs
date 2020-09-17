@@ -12,5 +12,9 @@
         <%= user.name %>
         <%= user.mail %>
     </div>
+    <form action="<%= apiUrl %>/upload-video/<%= user.id %>" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <button>Upload123</button>
+    </form>
 </body>
 </html>

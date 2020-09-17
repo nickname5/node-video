@@ -9,9 +9,10 @@ interface VideoAttributes {
   private: boolean;
   createdAt?: Date;
   updatedAt?: Date;
+  userId?: number;
 }
 
-interface VideoInstance extends Model<VideoAttributes>, VideoAttributes {}
+export interface VideoInstance extends Model<VideoAttributes>, VideoAttributes {}
 
 export default (sequelize: Sequelize): ModelCtor<VideoInstance> => {
   return sequelize.define<VideoInstance>('video', {
