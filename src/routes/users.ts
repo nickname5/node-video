@@ -5,6 +5,6 @@ const router = express.Router();
 /* GET users listing. */
 router.get('/', UserController.getUserList);
 
-router.get('/:id', UserController.getUser);
+router.get('/:id', UserController.getFullUserData);
 
 export default router;

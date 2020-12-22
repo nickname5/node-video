@@ -2,7 +2,7 @@ import { generate } from 'shortid';
 import { Model, DataTypes, Sequelize, ModelCtor } from "sequelize";
 
 interface VideoAttributes {
-  id: number;
+  id?: number;
   name: string;
   originalName: string;
   path: string;
@@ -40,10 +40,10 @@ export default (sequelize: Sequelize): ModelCtor<VideoInstance> => {
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
   }, {
-    hooks: {
-      beforeCreate: (video: VideoInstance) => {
-        video.name = generate();
-      }
-    },
+    // hooks: {
+    //   beforeCreate: (video: VideoInstance) => {
+    //     video.name = generate();
+    //   }
+    // },
   });
 };

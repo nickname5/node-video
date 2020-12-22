@@ -6,7 +6,7 @@ export class VideoService {
     return await Video.findOne({ where: { id } });
   }
 
-  static async getUserVideo(id: number): Promise<Array<VideoInstance>> {
+  static async getUserVideos(id: number): Promise<Array<VideoInstance>> {
     return await Video.findAll({ where: { userId: id } });
   }
 
@@ -23,5 +23,15 @@ export class VideoService {
     return [data, count];
   }
 
-  // static async addVideo()
+  static async addVideo(userId: number, meta: Record<string, any>) {
+    console.log('video service add video', meta);
+    await Video.create({
+      originalName: meta.originalname,
+      name: meta.filename,
+      path: meta.path,
+      private: false,
+      userId,
+    });
+    return null;// await Video.findOne({ where: { name } });
+  }
 }

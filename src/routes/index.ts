@@ -3,6 +3,7 @@ import * as pathUtil from 'path';
 import * as fs from 'fs';
 import { VideoController } from '../controller/VideoController';
 const router = express.Router();
+import { upload } from 'middleware/multer';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,8 +27,8 @@ router.get('/video', function(req, res, next) {
     const start = parseInt(parts[0], 10);
     const end = parts[1]
       ? parseInt(parts[1], 10)
-      : fileSize-1;
-    const chunksize = (end-start)+1;
+      : fileSize - 1;
+    const chunksize = (end-start) + 1;
     const file = fs.createReadStream(path, {start, end});
     const head = {
       'Content-Range': `bytes ${start}-${end}/${fileSize}`,
@@ -47,6 +48,6 @@ router.get('/video', function(req, res, next) {
   }
 });
 
-router.post('/upload-video/:id', VideoController.uploadVideo);
+router.post('/upload-video/:id', upload.single('video'), VideoController.uploadVideo);
 
 export default router;
