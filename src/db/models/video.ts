@@ -40,6 +40,9 @@ export default (sequelize: Sequelize): ModelCtor<VideoInstance> => {
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
   }, {
+    defaultScope: {
+      attributes: { exclude: ['path'] },
+    },
     // hooks: {
     //   beforeCreate: (video: VideoInstance) => {
     //     video.name = generate();

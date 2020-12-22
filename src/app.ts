@@ -6,15 +6,14 @@ import cors from 'cors';
 
 import indexRouter from 'routes';
 import usersRouter from 'routes/users';
+import videoRouter from 'routes/video';
 
 const app = express();
 
 /** todo list:
  *  1. replace morgan with something else
- *  2. video uploading
  *  4. auth
  *  5. database migrations
- *  6. video storage
  * */
 
 app.use(logger('dev'));
@@ -25,6 +24,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/video', videoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -11,9 +11,8 @@ export class UserController {
     try {
       const user = await UserService.getUser(id);
       const videos = await VideoService.getUserVideos(id);
-      console.log('user videos', id, user, videos);
 
-      res.send(user);
+      res.send({ user, videos });
     } catch (e) {
       next(e);
     }

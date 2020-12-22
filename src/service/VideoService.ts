@@ -24,14 +24,12 @@ export class VideoService {
   }
 
   static async addVideo(userId: number, meta: Record<string, any>) {
-    console.log('video service add video', meta);
-    await Video.create({
+    return await Video.create({
       originalName: meta.originalname,
       name: meta.filename,
       path: meta.path,
       private: false,
       userId,
     });
-    return null;// await Video.findOne({ where: { name } });
   }
 }
