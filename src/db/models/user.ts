@@ -10,7 +10,9 @@ interface UserAttributes {
   updatedAt?: Date;
 }
 
-export interface UserInstance extends Model<UserAttributes>, UserAttributes {}
+export interface UserInstance extends Model<UserAttributes>, UserAttributes {
+  validPassword: (password: string) => Promise<boolean>;
+}
 
 export default (sequelize: Sequelize): ModelCtor<UserInstance> => {
   const User = sequelize.define<UserInstance>('user', {

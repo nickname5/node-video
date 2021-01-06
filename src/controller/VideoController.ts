@@ -54,5 +54,25 @@ export class VideoController {
       throw Error(e);
     }
   }
+
+  static async getVideoList(req: Request, res: Response, next: NextFunction): Promise<void> {
+    const { page, limit, order, direction } = req.params;
+
+    try {
+      const [data, count] = await VideoService.getVideoList(+page, +limit, order, direction); // todo: page model
+      res.send({
+        data,
+        meta: {
+          page: +page,
+          limit: +limit,
+          order,
+          direction,
+        },
+        count,
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
 }
 

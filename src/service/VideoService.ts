@@ -10,7 +10,7 @@ export class VideoService {
     return await Video.findAll({ where: { userId: id } });
   }
 
-  static async getAllVideos(page: number, limit: number, order: string, direction: string): Promise<[VideoInstance[], number]> {
+  static async getVideoList(page: number, limit: number, order: string, direction: string): Promise<[VideoInstance[], number]> {
     // todo: handle private
     const count = await Video.count();
 

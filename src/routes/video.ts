@@ -8,4 +8,6 @@ router.post('/upload/:id', upload.single('video'), VideoController.uploadVideo);
 
 router.get('/:name', VideoController.getVideo);
 
+router.get('/list/p=:page&l=:limit&o=:order&d=:direction', VideoController.getVideoList);
+
 export default router;
